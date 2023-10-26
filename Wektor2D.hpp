@@ -13,6 +13,7 @@ public:
 
 class Wektor2D {
 public:
+    Wektor2D() {};
     Informer inf;
     Wektor2D(int wspx, int wspy) {
         x = wspx;
