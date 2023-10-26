@@ -13,16 +13,17 @@ public:
 
 class Wektor2D {
 public:
-    Wektor2D() {};
+    static int num_wek;
     Informer inf;
-    Wektor2D(int wspx, int wspy) {
+    Wektor2D() {};
+    Wektor2D(double wspx, double wspy) {
         x = wspx;
         y = wspy;
         num_wek++;
     }
     ~Wektor2D() { num_wek--; }
-    void setX(int X) { x = X; }
-    void setY(int Y) { y = Y; }
+    void setX(double X) { x = X; }
+    void setY(double Y) { y = Y; }
     int getX() { return x; }
     int getY() { return y; }
     void norm() {
@@ -40,12 +41,17 @@ public:
         return Wektor2D(x * other.x, y * other.y);
     }
     friend ostream& operator<<(ostream& os, const Wektor2D& other);
+    static int populacja() {
+        return num_wek;
+    }
 
 private:
-    int num_wek{ 0 };
-    int x;
-    int y;
+    
+    double x;
+    double y;
 };
+
+int Wektor2D::num_wek = 0;
 
 ostream& operator<<(ostream& os, const Wektor2D& other)
 {
