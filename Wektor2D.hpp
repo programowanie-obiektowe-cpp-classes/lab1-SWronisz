@@ -15,7 +15,7 @@ class Wektor2D {
 public:
     static int num_wek;
     Informer inf;
-    Wektor2D() {};
+    Wektor2D() { x = 0; y = 0; };
     Wektor2D(double wspx, double wspy) {
         x = wspx;
         y = wspy;
@@ -37,16 +37,17 @@ public:
     Wektor2D operator+(const Wektor2D& other) {
         return Wektor2D(x + other.x, y + other.y);
     }
-    Wektor2D operator*(const Wektor2D& other) {
-        return Wektor2D(x * other.x, y * other.y);
-    }
     friend ostream& operator<<(ostream& os, const Wektor2D& other);
     static int populacja() {
         return num_wek;
     }
+    double operator*(const Wektor2D& other) {
+        return x * other.x + y * other.y;
+    }
+
 
 private:
-    
+
     double x;
     double y;
 };
